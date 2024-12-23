@@ -1,483 +1,586 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joshua Mayokun Ajayi Portfolio</title>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio - Mayosoft</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./tailwind.config.js"></script>
 
-    <link rel="stylesheet" href="/maincss/style.css">
-    
-    <!--ICONSCOUT CDN-->
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-    
-    <!--GOOGLE FONTS (MONTSERRAT)-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Ovo&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body
+    class="overflow-x-hidden font-Outfit leading-8 dark:bg-darkTheme dark:text-white"
+  >
+    <div
+      class="fixed top-0 right-0 w-11/12 -z-10 translate-y-[-80%] dark:hidden"
+    >
+      <img src="./images/header-bg-color.png" class="w-full" alt="" />
+    </div>
 
+    <nav
+      class="w-full fixed px-5 lg:px-[5%] py-4 flex items-center justify-between z-50 bg-white shadow-md"
+    >
+      <img
+        src="./images/logo.png"
+        alt="logo"
+        class="w-20 sm:w-24 md:w-28 cursor-pointer mr-10 md:mr-14 dark:hidden"
+      />
+      <img
+        src="./images/logo_dark.png"
+        alt="logo"
+        class="w-20 sm:w-24 md:w-28 cursor-pointer mr-10 md:mr-14 hidden dark:block"
+      />
+      <ul
+        class="hidden md:flex items-center gap-4 sm:gap-6 md:gap-8 px-4 sm:px-8 py-2 rounded-full bg-white bg-opacity-75 shadow-sm dark:border dark:border-white/50 dark:bg-transparent"
+      >
+        <li><a href="#top" class="text-sm sm:text-base">Home</a></li>
+        <li><a href="#about" class="text-sm sm:text-base">About me</a></li>
+        <li><a href="#services" class="text-sm sm:text-base">Services</a></li>
+        <li><a href="#work" class="text-sm sm:text-base">My work</a></li>
+        <li><a href="#contact" class="text-sm sm:text-base">Contact me</a></li>
+        <li
+          class="px-6 sm:px-8 py-2 text-sm sm:text-base border rounded-full bg-gradient-to-r from-[#b820eb] to-[#da7d20] text-white flex items-center gap-2"
+        >
+          <a href="tel:+2347032436521" onclick="closeMenu()">Call me</a>
+        </li>
+      </ul>
+      <div class="flex items-center gap-2 md:gap-4">
+        <button onclick="toggleTheme()">
+          <img
+            src="./images/moon_icon.png"
+            class="w-5 sm:w-6 dark:hidden"
+            alt=""
+          />
+          <img
+            src="./images/sun_icon.png"
+            class="w-5 sm:w-6 hidden dark:block"
+            alt=""
+          />
+        </button>
+        <a
+          href="#contact"
+          class="hidden lg:flex items-center gap-2 sm:gap-3 px-6 sm:px-10 py-2 border border-gray-500 rounded-full font-Ovo dark:border-white/50"
+        >
+          Contact
+          <img
+            class="w-2 sm:w-3 dark:hidden"
+            src="./images/arrow-icon.png"
+            alt=""
+          />
+          <img
+            class="w-2 sm:w-3 hidden dark:block"
+            src="./images/arrow-icon-dark.png"
+            alt=""
+          />
+        </a>
+        <button class="block md:hidden ml-3" onclick="openMenu()">
+          <img src="./images/menu-black.png" alt="" class="w-6 dark:hidden" />
+          <img
+            src="./images/menu-white.png"
+            alt=""
+            class="w-6 hidden dark:block"
+          />
+        </button>
+      </div>
 
-    <!--SWIPER JS-->
-    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
-
-</head>
-<body>
-    <nav>
-        <div class="container nav__container">
-            <a href="index.html"><h4>Mayosoft</h4></a>
-            <ul class="nav__menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="courses.html">Courses</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-            <button id="open-menu-btn"><i class="uil uil-bars"></i></button>
-            <button id="close-menu-btn"><i class="uil uil-multiply"></i></button>
+      <!-- --------------------------mobile menu---------------------------- -->
+      <ul
+        id="sideMenu"
+        class="flex md:hidden flex-col gap-4 py-20 px-10 fixed -right-64 top-0 bottom-0 w-64 z-50 h-screen bg-rose-50 transition duration-500 font-Ovo dark:bg-darkHover dark:text-white"
+      >
+        <div onclick="closeMenu()" class="absolute right-6 top-6">
+          <img
+            src="./images/close-black.png"
+            alt=""
+            class="w-5 cursor-pointer dark:hidden"
+          />
+          <img
+            src="./images/close-white.png"
+            alt=""
+            class="w-5 cursor-pointer hidden dark:block"
+          />
         </div>
+
+        <li><a href="#top" onclick="closeMenu()">Home</a></li>
+        <li><a href="#about" onclick="closeMenu()">About me</a></li>
+        <li><a href="#services" onclick="closeMenu()">Services</a></li>
+        <li><a href="#work" onclick="closeMenu()">My work</a></li>
+        <li><a href="#contact" onclick="closeMenu()">Contact me</a></li>
+        <li
+          class="px-10 py-3 border rounded-full bg-gradient-to-r from-[#b820eb] to-[#da7d20] text-white flex items-center gap-2"
+        >
+          <a href="tel:+2347032436521" onclick="closeMenu()">Call me</a>
+        </li>
+      </ul>
     </nav>
 
-    <!--===================== END OF NAVBAR ======
-    =========================-->
+    <!-- ------------------------------header section -->
 
+    <div
+      class="w-11/12 max-w-3xl text-center mx-auto h-screen flex flex-col items-center justify-center gap-4"
+    >
+      <img src="./images/profile-img.png" alt="" class="rounded-full w-32" />
+      <h3 class="flex items-end gap-2 text-xl md:text-2xl mb-3 font-Ovo">
+        Hi I'm Joshua Mayokun Ajayi
+        <img src="./images/hand-icon.png" alt="" class="w-6" />
+      </h3>
+      <h1 class="text-3xl sm:text-6xl lg:text-[-66px] font-Ovo">
+        Full stack software engineer
+      </h1>
+      <p class="max-w-2xl mx-auto font-Ovo">
+        Passionate Full Stack Software Engineer delivering innovative solutions
+        with expertise in both frontend and backend development.
+      </p>
 
-    <!--========== HEADER SECTION =======-->
-    <header>
-        <div class="container header__container">
-            <div class="header__left">
-                <h1>Your most preferred Software Developer</h1>
-                <p>
-                    Mayosoft Tech, your Full Stack Website Developer offers software and IT solutions for a broad range of uses, including healthcare, financial service, security, data analysis as well as training tech experts and sales of computer based products.
-                </p>
-                <a href="contact.html" class="btn btn-primary">
-                    Contact Us
-                </a>
-            </div>
-            <div class="header__right">
-                <div class="header__right-image">
-                    <img src="/images/josh.png">
-                </div>
-            </div>
-        </div>
-    </header>
-    <!-- ====================== END OF HEADER =============-->
-
-
-
-    <!--- ========= CATEGORIES ==============-->
-
-    <section class="categories">
-        <div class="container categories__container">
-            <div class="categories__left">
-                <h1>Interest</h1>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                    Numquam exercitationem atque dolores voluptatum, harum ipsum commodi rerum. Eius, maiores. 
-                    Dolore illum repellat porro non repudiandae!
-                </p>
-                <a href="" class="btn">Learn More</a>
-            </div>
-
-            <div class="categories__right">
-                <article class="category">
-                    <span class="category__icon"><i class="uil uil-bitcoin"></i></span>
-                    <h5>Blockchain</h5>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                </article>
-            
-                <article class="category">
-                    <span class="category__icon"><i class="uil uil-palette"></i></span>
-                    <h5>Graphics Design</h5>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                </article>
-            
-                <article class="category">
-                    <span class="category__icon"><i class="uil uil-palette"></i></span>
-                    <h5>Web Development</h5>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                </article>
-            
-                <article class="category">
-                    <span class="category__icon"><i class="uil uil-brackets-curly"></i></i></span>
-                    <h5>E-commerce</h5>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                </article>
-            
-                <article class="category">
-                    <span class="category__icon"><i class="uil uil-book-open"></i></span>
-                    <h5>Music</h5>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                </article>
-            
-                <article class="category">
-                    <span class="category__icon"><i class="uil uil-channel"></i></i></span>
-                    <h5>Marketing</h5>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                </article>
-        </div>
-    </section>
-
-    <!-- =============== END OF CATEGORIES =============-->
-
-
-    <section class="courses">
-        <h2>Our Popular Courses</h2>
-        <div class="container courses__container">
-            <article class="course">
-                <div class="course__image">
-                    <img src="/images/course1.png">
-                </div>
-                <div class="course__info">
-                    <h4>Responsive Social Media Website UI Design</h4>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi
-                            aperiam deleniti fuga vitae distinctio nam quas esse eos optio sapiente!
-                        </p>
-                    <a href="course.html" class="btn-primary">Learn More</a>
-                </div>
-            </article>
-
-            <article class="course">
-                <div class="co urse__image">
-                    <img src="/images/course2.jpg">
-                </div>
-                <div class="course__info">
-                    <h4>Responsive Smartphone Website Design</h4>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi
-                            aperiam deleniti fuga vitae distinctio nam quas esse eos optio sapiente!
-                        </p>
-                    <a href="course.html" class="btn-primary">Learn More</a>
-                </div>
-                
-            </article>
-
-            <article class="course">
-                <div class="course__image">
-                    <img src="/images/course3.jpg">
-                </div>
-               <div class="course__info">
-                    <h4>Responsive Admin Dashboard UI Design</h4>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi
-                            aperiam deleniti fuga vitae distinctio nam quas esse eos optio sapiente!
-                        </p>
-                    <a href="course.html" class="btn-primary">Learn More</a>
-               </div>
-            </article>
-
-        </div>
-    </section>
-
-    <!-- =============== END OF COURSES =============-->
-
-    
-
-<section class="faqs">
-    <h2>Frequently Asked Questions</h2>
-    <div class="container faqs__container">
-        <article class="faq">
-            <div class="faq__icon"><i class="uil uil-plus"></i></div>
-            <div class="question__answer">
-                <h4>How do I know the right courses for me?</h4>
-                    <p>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-                        Ratione, tempora ipsa perferendis obcaecati similique consequuntur distinctio aliquid excepturi 
-                        voluptatem unde vero ex ipsam veritatis nihil.
-                    </p>
-                </div>
-        </article>
-
-        <article class="faq">
-            <div class="faq__icon"><i class="uil uil-plus"></i></div>
-            <div class="question__answer">
-                <h4>How do I know the right courses for me?</h4>
-                <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                    Ratione, tempora ipsa perferendis obcaecati similique consequuntur distinctio aliquid excepturi
-                    voluptatem unde vero ex ipsam veritatis nihil.
-                </p>
-            </div>
-        </article>
-        
-        <article class="faq">
-            <div class="faq__icon"><i class="uil uil-plus"></i></div>
-            <div class="question__answer">
-                <h4>How do I know the right courses for me?</h4>
-                    <p>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-                        Ratione, tempora ipsa perferendis obcaecati similique consequuntur distinctio aliquid excepturi 
-                        voluptatem unde vero ex ipsam veritatis nihil.
-                    </p>
-                </div>
-        </article>
-        
-        <article class="faq">
-            <div class="faq__icon"><i class="uil uil-plus"></i></div>
-            <div class="question__answer">
-                <h4>How do I know the right courses for me?</h4>
-                    <p>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-                        Ratione, tempora ipsa perferendis obcaecati similique consequuntur distinctio aliquid excepturi 
-                        voluptatem unde vero ex ipsam veritatis nihil.
-                    </p>
-                </div>
-        </article>
-        
-        <article class="faq">
-            <div class="faq__icon"><i class="uil uil-plus"></i></div>
-            <div class="question__answer">
-                <h4>How do I know the right courses for me?</h4>
-                    <p>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-                        Ratione, tempora ipsa perferendis obcaecati similique consequuntur distinctio aliquid excepturi 
-                        voluptatem unde vero ex ipsam veritatis nihil.
-                    </p>
-                </div>
-        </article>
-        
-        <article class="faq">
-            <div class="faq__icon"><i class="uil uil-plus"></i></div>
-            <div class="question__answer">
-                <h4>How do I know the right courses for me?</h4>
-                    <p>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-                        Ratione, tempora ipsa perferendis obcaecati similique consequuntur distinctio aliquid excepturi 
-                        voluptatem unde vero ex ipsam veritatis nihil.
-                    </p>
-                </div>
-        </article>
-
-        <article class="faq">
-            <div class="faq__icon"><i class="uil uil-plus"></i></div>
-            <div class="question__answer">
-                <h4>How do I know the right courses for me?</h4>
-                    <p>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-                        Ratione, tempora ipsa perferendis obcaecati similique consequuntur distinctio aliquid excepturi 
-                        voluptatem unde vero ex ipsam veritatis nihil.
-                    </p>
-                </div>
-        </article>
-
-        <article class="faq">
-            <div class="faq__icon"><i class="uil uil-plus"></i></div>
-            <div class="question__answer">
-                <h4>How do I know the right courses for me?</h4>
-                    <p>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-                        Ratione, tempora ipsa perferendis obcaecati similique consequuntur distinctio aliquid excepturi 
-                        voluptatem unde vero ex ipsam veritatis nihil.
-                    </p>
-                </div>
-        </article>
-
-        <article class="faq">
-            <div class="faq__icon"><i class="uil uil-plus"></i></div>
-            <div class="question__answer">
-                <h4>How do I know the right courses for me?</h4>
-                    <p>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-                        Ratione, tempora ipsa perferendis obcaecati similique consequuntur distinctio aliquid excepturi 
-                        voluptatem unde vero ex ipsam veritatis nihil.
-                    </p>
-                </div>
-        </article>
-
-        <article class="faq">
-            <div class="faq__icon"><i class="uil uil-plus"></i></div>
-            <div class="question__answer">
-                <h4>How do I know the right courses for me?</h4>
-                    <p>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-                        Ratione, tempora ipsa perferendis obcaecati similique consequuntur distinctio aliquid excepturi 
-                        voluptatem unde vero ex ipsam veritatis nihil.
-                    </p>
-                </div>
-        </article>
-
-       
+      <div class="flex flex-col sm:flex-row items-center gap-4 mt-4">
+        <a
+          href="#contact"
+          class="px-10 py-3 border rounded-full bg-gradient-to-r from-[#b820eb] to-[#da7d20] text-white flex items-center gap-2 dark:border-transparent"
+          >Contact me
+          <img src="./images/right-arrow-white.png" class="w-4" alt=""
+        /></a>
+        <a
+          href="./images/logo.png"
+          download
+          class="px-10 py-3 border rounded-full border-gray-500 flex items-center gap-2 bg-white bg-white dark:text-black"
+          >My resume <img src="./images/download-icon.png" class="w-4" alt=""
+        /></a>
+      </div>
     </div>
-</section>
 
-<!-- =============== END OF FAQs =============-->
+    <!-- --------------------------about me----------------------------------------- -->
+    <div id="about" class="w-full px-[12%] py-10 scroll-mt-20">
+      <!-- <h4 class="text-center mb-2 text-lg">Introduction</h4> -->
+      <h2 class="text-center text-5xl font-Ovo">About me</h2>
 
+      <div class="flex w-full flex-col lg:flex-row items-center gap-20 my-20">
+        <div class="max-w-max mx-auto relative">
+          <img
+            src="./images/user-image.png"
+            alt=""
+            class="w-64 sm::w-80 rounded-3xl max-w-none"
+          />
+          <!-- --------------rotating badge---------------------------------- -->
+          <div
+            class="bg-white w-1/2 aspect-square absolute right-0 bottom-0 rounded-full translate-x-1/4 translate-y-1/3 shadow-[0_4px_55px_rgba(149,0,162,0.15)] animate-rotate-slow flex items-center justify-center"
+          >
+            <img
+              src="./images/circular-text.png"
+              alt=""
+              class="w-full animate-spin_slow"
+            />
+          </div>
+        </div>
+        <div class="flex-1">
+          <p class="mb-10 max-w-2xl font-Ovo">
+            I am Joshua, a Full Stack Software Engineer with a proven track
+            record of developing scalable, user-focused applications. With
+            expertise in both frontend and backend technologies, I deliver
+            efficient and innovative solutions tailored to meet business
+            objectives. My commitment to continuous learning ensures I stay
+            ahead in a rapidly evolving industry.
+          </p>
+          <ul class="grid grid-cols-auto my-10 gap-5">
+            <li
+              class="border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer hover:bg-lightHover hover:translate-y-1 duration-500 hover:shadow-black dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/50"
+            >
+              <img
+                src="./images/code-icon.png"
+                alt=""
+                class="w-7 mt-3 dark:hidden"
+              />
+              <img
+                src="./images/code-icon-dark.png"
+                alt=""
+                class="w-7 mt-3 hidden dark:block"
+              />
+              <h3 class="my-4 font-semibold text-gray-700 dark:text-white">
+                Languages
+              </h3>
+              <p class="text-gray-600 text-sm dark:text-white/80">
+                HTML, CSS, JavaScript, React JS, Python, R, SQL, and Node Js.
+              </p>
+            </li>
+            <li
+              class="border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer hover:bg-lightHover hover:translate-y-1 duration-500 hover:shadow-black dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/50"
+            >
+              <img
+                src="./images/edu-icon.png"
+                alt=""
+                class="w-7 mt-3 dark:hidden"
+              />
+              <img
+                src="./images/edu-icon-dark.png"
+                alt=""
+                class="w-7 mt-3 hidden dark:block"
+              />
+              <h3 class="my-4 font-semibold text-gray-700 dark:text-white">
+                Education
+              </h3>
+              <p class="text-gray-600 text-sm dark:text-white/80">
+                PGD in Computer Science
+              </p>
+              <p class="text-gray-600 text-sm dark:text-white/80">
+                HND in Health Information Management
+              </p>
+            </li>
+            <li
+              class="border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer hover:bg-lightHover hover:translate-y-1 duration-500 hover:shadow-black dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/50"
+            >
+              <img
+                src="./images/project-icon.png"
+                alt=""
+                class="w-7 mt-3 dark:hidden"
+              />
+              <img
+                src="./images/project-icon-dark.png"
+                alt=""
+                class="w-7 mt-3 hidden dark:block"
+              />
+              <h3 class="my-4 font-semibold text-gray-700 dark:text-white">
+                Project
+              </h3>
+              <p class="text-gray-600 text-sm dark:text-white/80">
+                Built more than five(5) projects
+              </p>
+            </li>
+          </ul>
+          <h4 class="my-6 font-semibold text-gray-500 font-Ovo">Tools i use</h4>
 
-<section class="container testimonials__container mySwiper">
-    <h2>Students' Testimonials</h2>
-    <div class="swiper-wrapper">
-        <article class="testimonial swiper-slide">
-            <div class="avatar">
-                <img src="./images/avatar1.jpeg" alt="">
-            </div>
-            <div class="testimonial__info">
-                <h5>Mercy Odekunle</h5>
-                <small>Student</small>
-            </div>
-            <div class="testimonial__body">
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                    Recusandae esse provident magnam dolorem vel cupiditate nulla aut debitis aliquid voluptates.
-                </p>
-            </div>
-        </article>
-        
-        <article class="testimonial swiper-slide">
-            <div class="avatar">
-                <img src="./images/avatar2.jpg" alt="">
-            </div>
-            <div class="testimonial__info">
-                <h5>Mercy Odekunle</h5>
-                <small>Biochemist</small>
-            </div>
-            <div class="testimonial__body">
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                    Recusandae esse provident magnam dolorem vel cupiditate nulla aut debitis aliquid voluptates.
-                </p>
-            </div>
-        </article>
-        
-        <article class="testimonial swiper-slide">
-            <div class="avatar">
-                <img src="./images/avatar3.jpeg" alt="">
-            </div>
-            <div class="testimonial__info">
-                <h5>Mercy Odekunle</h5>
-                <small>Baker</small>
-            </div>
-            <div class="testimonial__body">
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                    Recusandae esse provident magnam dolorem vel cupiditate nulla aut debitis aliquid voluptates.
-                </p>
-            </div>
-        </article>
-        
-        <article class="testimonial swiper-slide">
-            <div class="avatar">
-                <img src="./images/avatar4.png" alt="">
-            </div>
-            <div class="testimonial__info">
-                <h5>Ajayi Joshua</h5>
-                <small>Web Developer</small>
-            </div>
-            <div class="testimonial__body">
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                    Recusandae esse provident magnam dolorem vel cupiditate nulla aut debitis aliquid voluptates.
-                </p>
-            </div>
-        </article>
-
-        <article class="testimonial swiper-slide">
-            <div class="avatar">
-                <img src="./images/avatar5.jpeg" alt="">
-            </div>
-            <div class="testimonial__info">
-                <h5>Ajayi Joshua</h5>
-                <small>Health Information Officer</small>
-            </div>
-            <div class="testimonial__body">
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                    Recusandae esse provident magnam dolorem vel cupiditate nulla aut debitis aliquid voluptates.
-                </p>
-            </div>
-        </article>
+          <ul class="flex flex-wrap justify-center gap-3 sm:gap-5">
+            <li
+              class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500"
+            >
+              <img src="./images/firebase.png" alt="" class="w-5 sm:w-7" />
+            </li>
+            <li
+              class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500"
+            >
+              <img src="./images/vscode.png" alt="" class="w-5 sm:w-7" />
+            </li>
+            <li
+              class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500"
+            >
+              <img src="./images/mongodb.png" alt="" class="w-5 sm:w-7" />
+            </li>
+            <li
+              class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500"
+            >
+              <img src="./images/git.png" alt="" class="w-5 sm:w-7" />
+            </li>
+            <li
+              class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500"
+            >
+              <img src="./images/figma.png" alt="" class="w-5 sm:w-7" />
+            </li>
+            <li
+              class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500"
+            >
+              <img src="./images/postman-api.png" alt="" class="w-5 sm:w-7" />
+            </li>
+            <li
+              class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500"
+            >
+              <img src="./images/mysql.png" alt="" class="w-5 sm:w-7" />
+            </li>
+            <li
+              class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500"
+            >
+              <img src="./images/excel.png" alt="" class="w-5 sm:w-7" />
+            </li>
+            <li
+              class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500"
+            >
+              <img src="./images/photoshop.png" alt="" class="w-5 sm:w-7" />
+            </li>
+            <li
+              class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500"
+            >
+              <img src="./images/corel.png" alt="" class="w-5 sm:w-7" />
+            </li>
+            <li
+              class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500"
+            >
+              <img src="./images/canva.png" alt="" class="w-5 sm:w-7" />
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
-                <div class="swiper-pagination"></div>
-</section>
-<!=========END OF TESTIMONIALS========>
 
+    <!-- -------------------------services-------------------------------------------- -->
+    <div id="services" class="w-full px-[12%] py-10 scroll-mt-20">
+      <h2 class="text-center text-5xl font-Ovo">My services</h2>
+      <p class="text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo">
+        Passionate Full Stack Software Engineer delivering innovative solutions
+        with expertise in both frontend and backend development.
+      </p>
 
-<footer>
-    <div class="container footer__container">
-            <div class="footer__1">
-                <a href="index.html" class="footer__logo"><h4>Mayosoft</h4></a>
-                <p>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere, eligendi?
-                </p>
-            </div>
-        
-
-        <div class="footer__2">
-            <h4>Quicklinks</h4>
-            <ul class="permalinks">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="course.html">Course</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
+      <div class="grid grid-cols-auto my-10 gap-6">
+        <div
+          class="border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer hover:bg-lightHover hover:translate-y-1 duration-500 hover:shadow-black dark:hover:bg-darkHover dark:hover:shadow-white"
+        >
+          <img src="./images/web-icon.png" alt="" class="w-10" />
+          <h3 class="text-lg my-4 text-gray-700 dark:text-white">Web design</h3>
+          <p class="text-sm text-gray-600 leading-5 dark:text-white/80">
+            Web development is the process of building and maintaining websites
+            or web applications...
+          </p>
+          <a href="" class="flex items-center gap-2 text-sm mt-5"
+            >Read more <img src="./images/right-arrow.png" alt="" class="w-4"
+          /></a>
         </div>
 
-        <div class="footer__3">
-            <h4>Privacy</h4>
-            <ul class="permalinks">
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Terms and conditions</a></li>
-                <li><a href="#">Refund Policy</a></li>
-            </ul>
+        <div
+          class="border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer hover:bg-lightHover hover:translate-y-1 duration-500 hover:shadow-black dark:hover:bg-darkHover dark:hover:shadow-white"
+        >
+          <img src="./images/mobile-icon.png" alt="" class="w-10" />
+          <h3 class="text-lg my-4 text-gray-700 dark:text-white">Mobile App</h3>
+          <p class="text-sm text-gray-600 leading-5 dark:text-white/80">
+            A mobile app is a software application designed to run on
+            smartphones and tablets, providing users with specific
+            functionalities and seamless experiences on the go...
+          </p>
+          <a href="" class="flex items-center gap-2 text-sm mt-5"
+            >Read more <img src="./images/right-arrow.png" alt="" class="w-4"
+          /></a>
         </div>
+        <div
+          class="border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer hover:bg-lightHover hover:translate-y-1 duration-500 hover:shadow-black dark:hover:bg-darkHover dark:hover:shadow-white"
+        >
+          <img src="./images/ui-icon.png" alt="" class="w-10" />
+          <h3 class="text-lg my-4 text-gray-700 dark:text-white">
+            UI/UX design
+          </h3>
+          <p
+            class="text-sm text-gray-600 leading-5 dark:text-white dark:text-white/80"
+          >
+            UI/UX design focuses on creating user-friendly and visually
+            appealing interfaces (UI) while ensuring an intuitive and engaging
+            user experience (UX) for digital products...
+          </p>
+          <a href="" class="flex items-center gap-2 text-sm mt-5"
+            >Read more <img src="./images/right-arrow.png" alt="" class="w-4"
+          /></a>
+        </div>
+        <div
+          class="border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer hover:bg-lightHover hover:translate-y-1 duration-500 hover:shadow-black dark:hover:bg-darkHover dark:hover:shadow-white"
+        >
+          <img src="./images/graphics-icon.png" alt="" class="w-10" />
+          <h3 class="text-lg my-4 text-gray-700 dark:text-white">
+            Graphic Design
+          </h3>
+          <p class="text-sm text-gray-600 leading-5 dark:text-white/80">
+            Graphic design is the art of combining visual elements like
+            typography, images, and colors to create compelling designs for
+            communication, branding, and storytelling...
+          </p>
+          <a href="" class="flex items-center gap-2 text-sm mt-5"
+            >Read more <img src="./images/right-arrow.png" alt="" class="w-4"
+          /></a>
+        </div>
+        <div
+          class="border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer hover:bg-lightHover hover:translate-y-1 duration-500 hover:shadow-black dark:hover:bg-darkHover dark:hover:shadow-white"
+        >
+          <img src="./images/data-analysis-icon.png" alt="" class="w-10" />
+          <h3 class="text-lg my-4 text-gray-700 dark:text-white">
+            Data Analysis
+          </h3>
+          <p class="text-sm text-gray-600 leading-5 dark:text-white/80">
+            Data analysis is the process of examining, organizing, and
+            interpreting data to uncover meaningful insights, support
+            decision-making, and solve problems effectively...
+          </p>
+          <a href="" class="flex items-center gap-2 text-sm mt-5"
+            >Read more <img src="./images/right-arrow.png" alt="" class="w-4"
+          /></a>
+        </div>
+      </div>
+    </div>
 
-        <div class="footer__4">
-            <h4>Contact Us</h4>
+    <!-- ----------------------My work-------------------------------------------- -->
+    <div id="work" class="w-full px-[12%] py-10 scroll-mt-20">
+      <h4 class="text-center mb-2 text-lg font-Ovo">My Portfolio</h4>
+      <h2 class="text-center text-5xl font-Ovo">My latest work</h2>
+      <p class="text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo">
+        I focus on showcasing my portfolio and highlighting my latest work,
+        reflecting my expertise and creative accomplishments.
+      </p>
+
+      <div class="grid grid-cols-auto my-10 gap-5 dark:text-black">
+        <div
+          class="aspect-square bg-[url('./images/work-1.png')] bg-no-repeat bg-cover bg-center cursor-pointer rounded-lg relative group"
+        >
+          <div
+            class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7"
+          >
             <div>
-                <p>+234 703 243 6521</p>
-                <p>mayosofttechnology@gmail.com</p>
+              <h2>Food Delivery</h2>
+              <p class="text-sm text-gray-700">Mobile App</p>
             </div>
-        
-            <ul class="footer__socials">
-                <li>
-                    <a href="#"><i class="uil uil-facebook-f"></i></a>
-                </li>
-                <li>
-                    <a href="#"><i class="uil uil-instagram-alt"></i></a>
-                </li>
-                <li>
-                    <a href="#"><i class="uil uil-twitter"></i></a>
-                </li>
-                <li>
-                    <a href="#"><i class="uil uil-linkedin-alt"></i></a>
-                </li>
-            </ul>
+            <div
+              class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition"
+            >
+              <img src="./images/send-icon.png" class="w-5" alt="" />
+            </div>
+          </div>
         </div>
-
-        
+        <div
+          class="aspect-square bg-[url('./images/work-2.png')] bg-no-repeat bg-cover bg-center cursor-pointer rounded-lg relative group"
+        >
+          <div
+            class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7"
+          >
+            <div>
+              <h2>Doctor Appointment Reminder</h2>
+              <p class="text-sm text-gray-700">Web Design</p>
+            </div>
+            <div
+              class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition"
+            >
+              <img src="./images/send-icon.png" class="w-5" alt="" />
+            </div>
+          </div>
+        </div>
+        <div
+          class="aspect-square bg-[url('./images/work-3.png')] bg-no-repeat bg-cover bg-center cursor-pointer rounded-lg relative group"
+        >
+          <div
+            class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7"
+          >
+            <div>
+              <h2>Hotel website</h2>
+              <p class="text-sm text-gray-700">Web Design</p>
+            </div>
+            <div
+              class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition"
+            >
+              <img src="./images/send-icon.png" class="w-5" alt="" />
+            </div>
+          </div>
+        </div>
+        <div
+          class="aspect-square bg-[url('./images/work-4.png')] bg-no-repeat bg-cover bg-center cursor-pointer rounded-lg relative group"
+        >
+          <div
+            class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7"
+          >
+            <div>
+              <h2>Course application</h2>
+              <p class="text-sm text-gray-700">Web Design</p>
+            </div>
+            <div
+              class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition"
+            >
+              <img src="./images/send-icon.png" class="w-5" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <a
+        href="#"
+        class="w-max flex items-center justify-center gap-2 text-gray-700 border-[0.5px] border-gray-700 rounded-full py-3 px-10 mx-20 hover:bg-lightHover duration-500 dark:text-white dark:border-white dark:hover:bg-darkHover"
+        >Show more
+        <img src="./images/right-arrow-bold.png" class="w-4 dark:hidden" />
+        <img
+          src="./images/right-arrow-bold-dark.png"
+          class="w-4 hidden dark:block"
+        />
+      </a>
     </div>
-    <div class="footer__copyright">
-            <small>Copryright &copy; GenerationalWallBuilders</small>
+
+    <!-- contact -->
+    <div
+      id="contact"
+      class="w-full px-[12%] py-10 scroll-mt-20 bg-[url('./images/footer-bg-color.png')] bg-no-repeat bg-[length:90%_auto] bg-center dark:bg-none"
+    >
+      <h4 class="text-center mb-2 text-lg font-Ovo">Connect with me</h4>
+      <h2 class="text-center text-5xl font-Ovo">Get in touch</h2>
+      <p class="text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo">
+        I value the opportunity to hear from you. Let’s collaborate to bring
+        your vision to life and achieve remarkable results.
+      </p>
+
+      <form
+        action="https://formsubmit.co/f79d3091f1b77b566704205d54541b48"
+        method="POST"
+        class="max-w-2xl mx-auto"
+      >
+        <div class="grid grid-cols-auto gap-6 mt-10 mb-8">
+          <input
+            type="text"
+            name="name"
+            placeholder="Enter your name"
+            required
+            class="dark:bg-darkHover/30 dark:border-white/90 flex-1 p-3 outline-none border-[0.5px] border-gray-400 rounded-md bg-white"
+          />
+          <input
+            type="email"
+            name="email"
+            required
+            placeholder="Enter your email"
+            class="dark:bg-darkHover/30 dark:border-white/90 flex-1 p-3 outline-none border-[0.5px] border-gray-400 rounded-md bg-white"
+          />
         </div>
-</footer>
+        <textarea
+          rows="6"
+          name="message"
+          required
+          placeholder="Enter your message"
+          class="dark:bg-darkHover/30 dark:border-white/90 w-full p-4 outline-none border-[0.5px] border-gray-400 rounded-md gb-white mb-6"
+        ></textarea>
+        <button
+          class="dark-bg-transparent dark:border-[0.5px] dark:hover:bg-darkHover py-3 px-8 w-max flex items-center justify-between gap-2 bg-black/80 text-white rounded-full mx-auto hover:bg-black duration-500"
+        >
+          Submit now
+          <img src="./images/right-arrow-white.png" class="w-4" alt="" />
+        </button>
+      </form>
+    </div>
 
-
-
-
-
-    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
-    <script src="./main.js "></script>
-
-    <script>
-        var swiper = new Swiper(".mySwiper", {
-        slidesPerView: 1,
-        spaceBetween: 30,
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-        },
-        // when window width is >= 600px
-        breakpoints: {
-            600:{
-            slidesPerView: 2
-        }
-        }
-      });
-    </script>
-
-   
-
-</body>
+    <!-- -------------------------footer ------------------------------->
+    <div class="mt-20">
+      <div class="text-center">
+        <img
+          src="./images/logo.png"
+          class="w-36 mx-auto mb-2 dark:hidden"
+          alt=""
+        />
+        <img
+          src="./images/logo_dark.png"
+          class="w-36 mx-auto mb-2 hidden dark:block"
+          alt=""
+        />
+        <div class="w-max flex items-center gap-2 mx-auto">
+          <img src="./images/mail_icon.png" class="w-8 dark:hidden" />
+          <img
+            src="./images/mail_icon_dark.png"
+            class="w-8 hidden dark:block"
+          />ajayijoshuamayokun@gmail.com
+        </div>
+      </div>
+      <div
+        class="text-center sm:flex items-center justify-between border-t border-gray-400 mx-[10%] mt-12 py-6"
+      >
+        <p>&copy; 2024 Mayosoft technology. All rights reserved.</p>
+        <ul class="flex items-center gap-10 justify-center mt-4 sm:mt-0">
+          <li>
+            <a href="https://instaram.com/mayokunjoshuaajayi"></a>Instagram
+          </li>
+          <li><a href="https://instaram.com/joshuaajayi"></a>Github</li>
+          <li>
+            <a href="https://instaram.com/mayokunjoshuaajayi"></a>LinkedIn
+          </li>
+          <li><a href="https://instaram.com/mayokunjoshuaajayi"></a>Twitter</li>
+        </ul>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
 </html>
-
-
-
