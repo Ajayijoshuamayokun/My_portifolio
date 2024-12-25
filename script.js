@@ -67,3 +67,23 @@ function toggleTheme() {
     localStorage.theme = "light";
   }
 }
+
+// ------------------------------------Show more button toggle hide-------------------------------------
+// document
+//   .getElementById("showMoreButton")
+//   .addEventListener("click", function () {
+//     // Get all hidden items
+//     const hiddenItems = document.querySelectorAll(".hidden");
+
+//     // Toggle the visibility of hidden items
+//     hiddenItems.forEach((item) => {
+//       item.classList.toggle("hidden");
+//     });
+
+//     // Change the button text after showing or hiding items
+//     if (hiddenItems[0].classList.contains("hidden")) {
+//       this.textContent = "Show more";
+//     } else {
+//       this.textContent = "Show less";
+//     }
+//   });
