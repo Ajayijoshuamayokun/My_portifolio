@@ -7,6 +7,7 @@
     <link rel="icon" type="image/x-icon" href="images/favicon.png" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="./tailwind.config.js"></script>
+    <link rel="icon" href="images/logo.png" type="image/png" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,6 +18,7 @@
 
     <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="floating-wpp.min.js"></script>
+    <script type="text/javascript" src="floating-wpp.js"></script>
     <link rel="stylesheet" href="floating-wpp.min.css" />
   </head>
   <body
@@ -657,20 +659,22 @@
         </ul>
       </div>
     </div>
-    <script src="./script.js" type="text/javascript">
-      $(function () {
-        $('#myDiv').floatingWhatsApp({
-          phone: '2347032436521',
-          popupMessage: 'Hello, how can we help you?',
-          message: "I'd like to know about your service",
-          showPopup: true,
-          showOnIE: false,
-          headerTitle: 'Welcome!',
-          headerColor: 'crimson',
-          backgroundColor: 'crimson',
-          position: 'right'
-        });
-      });
-    </script>
+    <div id="myDiv"></div>
+    <script src="./script.js" type="text/javascript"></script>
   </body>
+  <script type="text/javascript">
+    $(function () {
+      $("#myDiv").floatingWhatsApp({
+        phone: "2347032436521",
+        popupMessage: "Hello, how can we help you?",
+        message: "I'd like to know about your service",
+        showPopup: true,
+        showOnIE: false,
+        headerTitle: "Welcome!",
+        headerColor: "crimson",
+        backgroundColor: "crimson",
+        position: "right",
+      });
+    });
+  </script>
 </html>
